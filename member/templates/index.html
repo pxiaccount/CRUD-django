@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid rgba(255, 255, 255, 0.500);
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        body {
+            background-color: rgb(44, 44, 44);
+            color: white;
+        }
+
+        button {
+            background-color: rgba(0, 0, 0, 0);
+            padding: 5px;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CRUD App</h1>
+    <button><a href="{% url 'add' %}">Add</a></button>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Favorite Food</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for x in member %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.favorite_food }}</td>
+            <td><a href="{% url 'update' x.id %}">Update</a></td>
+            <td><a href="{% url 'delete_to_model' x.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

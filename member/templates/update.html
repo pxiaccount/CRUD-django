@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        body {
+            background-color: rgb(44, 44, 44);
+            color: white;
+        }
+
+        button {
+            background-color: rgba(0, 0, 0, 0);
+            padding: 5px;
+            border-radius: 10px;
+            border: 2px solid white;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Update</h1>
+    <form action="{% url 'update_to_model' member.id %}" method="post">
+        {% csrf_token %}
+        Name: <input type="text" name="name" value="{{member.name}}"><br>
+        Favorite Food: <input type="text" name="food" value="{{member.favorite_food}}"><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
